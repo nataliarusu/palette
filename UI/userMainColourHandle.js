@@ -18,6 +18,10 @@ export const toggleFormVisibility=(btn,p)=>{
   
   if(form.classList.contains('visible')){
     form.classList.remove('visible');
+    if(userColourInput.classList.contains('error')){
+      userColourInput.classList.remove('error');
+    }
+    userColourInput.value='';
     btn.innerHTML='Show form';
   }
   else{
