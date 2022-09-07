@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+/*********************************header*********************************/
+header {
+  border-bottom: 2px solid #d1d1d1;
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+#save-palette--btn {
+  border: 2px solid #c90044;
+  height: 3rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px grey;
+  background: #fc0b5d;
+  color: white;
+  margin-right: 2rem;
+}
+#save-palette--btn:hover {
+  cursor: pointer;
+}
+#canvas-container {
+  border: 2px solid gray;
+  width: 280px;
+  height: 3rem;
+  overflow: hidden;
+  margin-left: 2rem;
+}
+canvas {
+  width: 280px;
+  height: 3rem;
+}
+/*********************************End header*********************************/
+
+/**************************section header-actions****************************/
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin: 2rem 2rem 1rem 2rem;
+}
+.header-actions button {
+  border-radius: 5px;
+  height: 2.2rem;
+  background: white;
+  font-weight: 600;
+  margin: 0 0.2rem;
+}
+.header-actions button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px black;
+  color: black !important;
+}
+/****randomize palette!****/
+
+.action--randomize-colour {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 200px;
+}
+#randomize--split-complementary-btn {
+  color: #793a0a;
+}
+#randomize--complementary-btn {
+  color: #00545e;
+}
+#randomize-tradic-btn {
+  color: #380d49;
+}
+.tooltip-colourRule {
+  position: relative;
+  display: inline-block;
+}
+.tooltip-colourRuletext {
+  visibility: hidden;
+  width: 90px;
+  border: 1px solid #380d49;
+  font-size: 0.8rem;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  left: -150%;
+  bottom: 120%;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip-colourRule:hover .tooltip-colourRuletext {
+  visibility: visible;
+}
+.tooltip-colourRule:hover .material-icons {
+  color: #c90044;
+}
+.tooltip-colourRule:hover {
+  cursor: pointer;
+}
+/****END randomize palette****/
+
+/****custom palette****/
+.action--customize-colour {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#generate-palette--f {
+  visibility: hidden;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.action--customize-colour label,
+.action--customize-colour input {
+  display: block;
+}
+.action--customize-colour select {
+  width: 100%;
+}
+label {
+  font-size: 0.8rem;
+}
+
+/**************************END section header-actions****************************/
+
+.error {
+  background: rgb(252, 204, 204);
+}
+.visible {
+  visibility: visible !important;
+}
+
+.invisible {
+  opacity: 0 !important; /**/
+}
+/**************************palette****************************/
+.palette {
+  margin: 0 1rem;
+}
+
+.colours-generator--container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(50px, 1fr)
+  ); /*https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/*/
+}
+.colour-generator--item {
+  position: relative; /*buttons absolute*/
+}
+
+.colour-generator-btns {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.colour-generator--info {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/*? https://sebhastian.com/html-hover-text/*/
+.colour-generator-btns > div {
+  padding: 0.2rem;
+  border-radius: 4px;
+}
+.colour-generator-btns > div:hover {
+  background: #ffffff5c;
+  padding: 0.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  opacity: 1;
+}
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 1rem;
+  left: 100%;
+  top: -1.2rem;
+  height: 1rem;
+  font-size: 0.9rem;
+  padding: 1px 5px;
+  display: none;
+  color: white;
+  /*width: 10rem;*/
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  transition: opacity 0.1s ease-out;
+  z-index: 99;
+}
+
+.tooltip:hover::before {
+  display: inline-block;
+}
+
+.colour-picker--label {
+  font-size: 1.2rem;
+  display: block;
+  text-align: center;
+}
+.colour-picker--label:hover {
+  cursor: pointer;
+}
+.colour-picker--input {
+  visibility: hidden;
+}
+
+.colour-generator--bar {
+  z-index: 100;
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  top: 0; /*if vertical*/
+}
+[data-barposition='left'] {
+  left: 0;
+}
+[data-barposition='right'] {
+  right: 0;
+}
+.colour-generator--info div {
+  margin: 1rem 0;
+}
+
+/*buttons for colour lines*/
+
+/*add new line style*/
+.front {
+  z-index: 999 !important;
+  opacity: 1 !important;
+}
+.onhover-line-container {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.add-line-btn,
+.add-line-btn--center {
+  border-radius: 50%;
+  background-color: white;
+}
+.add-line-btn {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(169, 169, 169, 0.2);
+}
+
+.add-line-btn--center {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 7px;
+  border: 1px solid rgba(169, 169, 169, 0.2);
+}
+.add-line-btn--center:hover {
+  cursor: pointer;
+  background-color: rgba(169, 169, 169, 0.2);
+}
+.add-line-btn--center span {
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 30px;
+}
+/*end add new line style*/
+/**************************END palette****************************/
+@media screen and (max-width: 780px) {
+  .colour-picker--label {
+    transform: rotate(-90deg);
+    padding-left: 3rem;
+  }
+  .secondary-info {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .colours-generator--container {
+    grid-template-columns: 1fr;
+  }
+  .colour-generator--item {
+    height: 100px;
+  }
+
+  .colour-generator-btns,
+  .onhover-line-container {
+    display: none;
+  }
+  .colour-generator--info {
+    z-index: 200; /*above left/right bars*/
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+  }
+  .colour-picker--label {
+    transform: rotate(0deg);
+  }
+}

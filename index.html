@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <script src="index.js" defer type="module"></script>
+
+    <title>Colour palette</title>
+  </head> 
+    <header>  
+      <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+      </div>
+      <button id="save-palette--btn">Save palette</button>
+    </header>
+    <section class="header-actions">
+      <div class="action--randomize-colour">
+        <div class="tooltip-colourRule" id="randomize--split-complementary-btn">
+          <span class="material-icons">
+            palette
+            </span>
+            <span class="tooltip-colourRuletext">Split Complementary</span>
+        </div>
+        <div class="tooltip-colourRule" id="randomize--complementary-btn">
+          <span class="material-icons">
+            palette
+            </span>
+            <span class="tooltip-colourRuletext">Complementary</span>
+        </div>
+        <div class="tooltip-colourRule" id="randomize-tradic-btn">
+          <span class="material-icons">
+            palette
+            </span>
+            <span class="tooltip-colourRuletext">Tradic</span>
+        </div>
+        <div class="tooltip-colourRule" id="randomize-random-btn">
+          <span class="material-icons">
+            palette
+            </span>
+            <span class="tooltip-colourRuletext">Random</span>
+        </div>
+        <div class="tooltip-colourRule" id="show-saved-palette">
+          <span class="material-icons">
+            palette
+            </span>
+            <span class="tooltip-colourRuletext">Show saved palette</span>
+        </div>        
+      </div>
+      <div class="action--customize-colour">  
+        <form id="generate-palette--f" class="form">
+          <div class="form-block">
+            <label for="colour-rule">Select the rule</label>
+            <select name="palette-type" id="colour-rule">
+              <option value="SplitComplementary">Split Complementary</option>
+              <option value="Complementary">Complementary</option>
+              <option value="Tradic">Tradic</option>
+              <option value="Random" selected>Random</option>
+            </select>
+          </div>
+          <div class="form-block">
+            <label for="colour-type">Colour type</label>
+            <select name="colour-type" id="colour-type">
+              <option value="rgb" selected>RGB</option>
+              <option value="hex">HEX</option>
+              <option value="hsl">HSL</option>
+            </select>
+          </div>
+          <div class="form-block">
+            <label for="palette-main-colour">Colour value</label>
+            <input
+              type="text"
+              id="palette-main-colour"
+              name="palette-main-colour"
+              placeholder="280, 20,40"
+            />
+          </div>          
+          <button type="submit" class="generate-palette-btn">Generate</button>          
+        </form>
+        <button id="toggle-form-btn">Show form</button>
+      </div>
+    </section>
+    <section class="palette">
+      <ul class="colours-generator--container"></ul>
+      <div class="onhover-line-container">
+        <div class="add-line-btn">
+          <div class="add-line-btn--center">
+            <span>+</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
