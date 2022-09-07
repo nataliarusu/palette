@@ -89,7 +89,6 @@ showSavedPaletteBtn.addEventListener('click', () => {
 });
 
 ul.addEventListener('click', (ev) => {
-  console.log(ev.target);
   if (ev.target.parentElement.dataset.tooltip === 'remove') {
     //span ev.target
     const li = ev.target.closest('li');

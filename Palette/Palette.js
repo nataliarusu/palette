@@ -1,7 +1,6 @@
 import * as constants from '../UI/constants.js';
 import * as colourMixer from '../UI/mixcheckColours.js';
 import {
-  generateHslMainColor,
   getSplitComplementaryColours,
   getComplementaryColours,
   getTradicColours,
