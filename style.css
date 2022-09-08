@@ -50,7 +50,7 @@ canvas {
   border: 2px solid black;
   color: black;
   border-radius: 5px;
-  height: 2.2rem;  
+  height: 2.2rem;
   font-weight: 600;
   margin: 0 0.2rem;
 }
@@ -147,6 +147,19 @@ label {
 .invisible {
   opacity: 0 !important; /**/
 }
+
+/**********************section download*************************/
+.download {
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin: 0 4rem;
+}
+.downloadJSON:hover {
+  cursor: pointer;
+}
+/*****************END section download*************************/
+
 /**************************palette****************************/
 .palette {
   margin: 0 1rem;
@@ -297,6 +310,89 @@ label {
 }
 /*end add new line style*/
 /**************************END palette****************************/
+
+/****export => modal and backdrop*****/
+.bm-visible {
+  display: block !important;
+}
+.backdrop {
+  background: #595a5cad;
+  position: fixed; /*position fixed because I want to be on whole viewport, and put top 0, left 0*/
+  z-index: 999; /*z-index works because position specified, */
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 350px;
+  margin: auto;
+  border: 2px solid black;
+  padding: 1.5rem;
+  display: none;
+  z-index: 999;
+  background: white;
+}
+#css-name-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+#css-name-form input {
+  outline: 0;
+  -webkit-appearance: none;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.colour-value-label {
+  border: 1px solid gray;
+  text-align: center;
+  height: 2rem;
+}
+.export-actions {
+  display: flex;
+  justify-content: center;
+}
+.exportJSON {
+  background: #00545e;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 2px solid #32627b;
+  width: 70%;
+  text-align: center;
+}
+.exportJSON:hover {
+  background: #1f3a48;
+}
+.exportJSON:active {
+  background: #00545e;
+}
+.exportJSON-passive {
+  color: #930000;
+  border: 2px solid white;
+  border-radius: 3px;
+  width: 2.2rem;
+  height: 2.2rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.exportJSON-passive:hover {
+  cursor: pointer;
+  border: 2px solid #930000;
+}
+.exportJSON-passive span {
+  font-size: 2rem;
+}
+/****END export => modal and backdrop*****/
+
 @media screen and (max-width: 780px) {
   .colour-picker--label {
     transform: rotate(-90deg);
