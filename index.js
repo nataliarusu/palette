@@ -5,7 +5,10 @@ import { addNewColourLine } from './UI/onAddNewColourLine.js';
 import { toggleFormVisibility } from './UI/userMainColourHandle.js';
 import { generateHslMainColor } from './UI/generatePaletteRange.js';
 import { savePalette, getSavedColours } from './UI/handleLocalStorage.js';
+import { exportHandler} from './UI/exportJSON.js';
 
+const downloadJSONBtn=document.querySelector('.downloadJSON');
+const downloadTxtBtn=document.querySelector('.downloadText');
 const addColourBtn = document.querySelector('.add-line-btn');
 const savePaletteBtn = document.querySelector('#save-palette--btn');
 const randomizeSCcolourBtn = document.querySelector(
@@ -95,4 +98,13 @@ ul.addEventListener('click', (ev) => {
     userPalette.remove(li);
     updateGradient();
   }
+});
+
+downloadTxtBtn.addEventListener('click',()=>{
+  const text=userPalette.hexcolours.toString();
+  downloadTxtBtn.setAttribute('href', 'data:text/plain; charset = utf-8, ' + encodeURIComponent(text));
+}, false);
+
+downloadJSONBtn.addEventListener('click',()=>{
+  exportHandler(userPalette.hexcolours);
 });
