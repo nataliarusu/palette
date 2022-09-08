@@ -11,6 +11,17 @@
 
     <title>Colour palette</title>
   </head> 
+  <body>
+    <div class="backdrop"></div>
+    <div class="modal">      
+      <div id="css-name-form"></div>
+      <div class="export-actions">
+        <a href="" download="palette" class="exportJSON">Export</a>
+        <div class="exportJSON-passive"><span class="material-icons">
+          cancel
+          </span></div>
+      </div>  
+    </div>
     <header>  
       <div id="canvas-container">
         <canvas id="canvas"></canvas>
@@ -83,6 +94,20 @@
         <button id="toggle-form-btn">Show form</button>
       </div>
     </section>
+    <section class="download">
+      <div class="downloadJSON tooltip" data-tooltip="json">
+        <span class="material-icons">
+          file_download
+          </span>
+      </div>
+      <div class="downloadTxt tooltip" data-tooltip="text">
+        <a href="" download="palette" class="downloadText">
+          <span class="material-icons">
+            file_download
+            </span>
+        </a>
+      </div>
+    </section>    
     <section class="palette">
       <ul class="colours-generator--container"></ul>
       <div class="onhover-line-container">
