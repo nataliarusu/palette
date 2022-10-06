@@ -8,9 +8,9 @@ This project
 - you can save palette to localStorage
 
 Using the palette you can generate palettes
--Split Complementary colour rules
--Tradic colour rules
--Complementary colour rules
--Random 
--Enter your own main colour and generate palette using all/any rules above
+- Split Complementary colour rules
+- Tradic colour rules
+- Complementary colour rules
+- Random 
+- Enter your own main colour and generate palette using all/any rules above
 
